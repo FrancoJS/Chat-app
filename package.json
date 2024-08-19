@@ -1,0 +1,21 @@
+{
+	"name": "chat-app",
+	"version": "0.0.1",
+	"description": "aplicacion de chat",
+	"main": "src/app.js",
+	"type": "module",
+	"scripts": {
+		"dev": "node --watch src/app.js",
+		"start": "node src/app.js"
+	},
+	"author": "Franco_SJ",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^5.1.1",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"jsonwebtoken": "^9.0.2",
+		"pg": "^8.12.0"
+	}
+}

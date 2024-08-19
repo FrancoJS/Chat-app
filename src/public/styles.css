@@ -1,0 +1,199 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+}
+
+:root {
+	--background-color: #1c3659;
+	--background-linear: linear-gradient(90deg, rgb(123, 23, 23) 0%, rgba(66, 71, 204, 1) 99%);
+}
+
+/* FORMULARIOS                          */
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--background-color);
+	background: var(--background-linear);
+	transition: 1s;
+}
+
+/* .slide {
+	background-color: #1c3659;
+} */
+
+.container {
+	position: relative;
+	width: 800px;
+	height: 400px;
+	background-color: rgba(0, 0, 0, 0.125);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container .box {
+	position: relative;
+	width: 50%;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 40px;
+}
+
+.container .box h2 {
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.container .box button {
+	cursor: pointer;
+	padding: 10px 20px;
+	background-color: #fff;
+	color: #333;
+	font-size: 16px;
+	font-weight: 500;
+	border: none;
+	outline: none;
+}
+
+.container .box button:hover {
+	background-color: rgba(66, 71, 204, 1);
+	color: #fff;
+}
+
+.formBx {
+	position: absolute;
+	left: 50px;
+	width: 350px;
+	height: 480px;
+	background-color: #fff;
+	z-index: 1000;
+	box-shadow: 10px 5px 25px rgba(0, 0, 0, 0.5);
+	transition: 0.5s;
+	transition-delay: 0.5s;
+	overflow: hidden;
+}
+
+.slide .formBx {
+	left: 400px;
+}
+
+.formBx .form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+	background-color: #fff;
+}
+
+.formBx .form.signupform {
+	top: 100%;
+	transition-delay: 0s;
+}
+
+.slide .formBx .form.signupform {
+	top: 0;
+	transition-delay: 0.5s;
+}
+
+.formBx .form.signinform {
+	top: 0%;
+	transition-delay: 0.5s;
+}
+
+.slide .formBx .form.signinform {
+	top: -100%;
+	transition-delay: 0s;
+}
+
+.formBx .form form {
+	display: flex;
+	flex-direction: column;
+	padding: 0 30px;
+	width: 100%;
+	align-items: center;
+}
+
+.formBx .form form h3 {
+	font-size: 1.4rem;
+	color: #333;
+	margin-bottom: 20px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.formBx .form form input {
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	border: none;
+	font-size: 0.8rem;
+}
+
+.formBx .form form input[type="submit"] {
+	border: 1px solid #000;
+	margin-top: 20px;
+	font-weight: 600;
+	width: 150px;
+	background-color: var(--background-color);
+	color: #fff;
+	cursor: pointer;
+}
+
+.formBx .form form input[type="submit"]:hover {
+	background-color: #315583;
+}
+
+.formsIcons {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border-bottom: 1px solid #333;
+	padding: 5px 10px;
+	margin-top: 10px;
+}
+
+.formsIcons span {
+	border-right: 1px solid #000;
+	padding-right: 10px;
+	color: ;
+}
+
+.forgot {
+	/* text-decoration: none; */
+	color: #000;
+	font-size: 0.8rem;
+	margin-top: 10px;
+}
+
+.forgot:hover {
+	color: red;
+}
+
+/* -------------------------------------------- */
+
+/* MENSAJES DE ERROR FORMULARIO */
+
+.errorMsgLogin,
+.errorMsgRegister {
+	font-size: 0.7rem;
+	color: red;
+}
+
+/*---------------------------------------  */
