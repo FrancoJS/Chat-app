@@ -3,6 +3,10 @@ import { loginUser, registerUser } from "./api.js";
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// MODAL PARA MOSTRAR CUANDO UN REGISTRO SE HIZO EXITOSAMENTE
+const modalSucces = document.querySelector(".modalSucces");
+// H3 CON MENSAJE DE APROBADO
+const msgSuccesUser = document.getElementById("msgSuccesUser");
 
 export const validateLogin = () => {
 	loginForm.addEventListener("submit", async (e) => {
@@ -33,6 +37,12 @@ export const validateLogin = () => {
 			const data = await loginUser(email, password);
 			if (!data.ok) {
 				errorLoginUser.textContent = data.msg;
+			} else {
+				modalSucces.classList.remove("disabled");
+				msgSuccesUser.textContent = data.msg;
+				setTimeout(() => {
+					modalSucces.classList.add("disabled");
+				}, 3000);
 			}
 		}
 	});
@@ -41,9 +51,7 @@ export const validateLogin = () => {
 export const validateRegister = () => {
 	registerForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
-		const modalSucces = document.querySelector(".modalSucces");
 		const errorPostUser = document.getElementById("errorPostUser");
-		const succesPostUser = document.getElementById("succesPostUser");
 		const [errorName, errorEmail, errorPassword, errorConfirm] = document.querySelectorAll(".errorMsgRegister");
 		const name = e.target.name.value.trim();
 		const email = e.target.email.value.trim();
@@ -85,7 +93,7 @@ export const validateRegister = () => {
 				errorPostUser.textContent = data.msg;
 			} else {
 				modalSucces.classList.remove("disabled");
-				succesPostUser.textContent = data.msg;
+				msgSuccesUser.textContent = data.msg;
 				setTimeout(() => {
 					modalSucces.classList.add("disabled");
 				}, 3000);
