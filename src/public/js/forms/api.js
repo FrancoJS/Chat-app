@@ -16,3 +16,22 @@ export const registerUser = async (username, email, password) => {
 		return error;
 	}
 };
+
+export const loginUser = async (email, password) => {
+	return fetch("/api/chat/login", {
+		method: "POST",
+		headers: {
+			"Content-type": "application/json",
+		},
+		body: JSON.stringify({
+			email,
+			password,
+		}),
+	})
+		.then((res) => {
+			return res.json();
+		})
+		.catch((error) => {
+			return error;
+		});
+};

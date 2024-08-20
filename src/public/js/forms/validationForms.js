@@ -1,13 +1,14 @@
-import { registerUser } from "./api.js";
+import { loginUser, registerUser } from "./api.js";
 
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export const validateLogin = () => {
-	loginForm.addEventListener("submit", (e) => {
-		const [errorEmail, errorPassword] = document.querySelectorAll(".errorMsgLogin");
+	loginForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
+		const errorLoginUser = document.getElementById("errorLoginUser");
+		const [errorEmail, errorPassword] = document.querySelectorAll(".errorMsgLogin");
 		const email = e.target.email.value.trim();
 		const password = e.target.password.value.trim();
 
@@ -29,8 +30,10 @@ export const validateLogin = () => {
 			: "";
 
 		if (!errorEmail.textContent && !errorPassword.textContent) {
-			// No hay errores, se puede enviar el formulario
-			console.log("Enviado");
+			const data = await loginUser(email, password);
+			if (!data.ok) {
+				errorLoginUser.textContent = data.msg;
+			}
 		}
 	});
 };
@@ -38,8 +41,9 @@ export const validateLogin = () => {
 export const validateRegister = () => {
 	registerForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
-
+		const modalSucces = document.querySelector(".modalSucces");
 		const errorPostUser = document.getElementById("errorPostUser");
+		const succesPostUser = document.getElementById("succesPostUser");
 		const [errorName, errorEmail, errorPassword, errorConfirm] = document.querySelectorAll(".errorMsgRegister");
 		const name = e.target.name.value.trim();
 		const email = e.target.email.value.trim();
@@ -79,6 +83,12 @@ export const validateRegister = () => {
 			const data = await registerUser(name, email, password);
 			if (!data.ok) {
 				errorPostUser.textContent = data.msg;
+			} else {
+				modalSucces.classList.remove("disabled");
+				succesPostUser.textContent = data.msg;
+				setTimeout(() => {
+					modalSucces.classList.add("disabled");
+				}, 3000);
 			}
 		}
 	});

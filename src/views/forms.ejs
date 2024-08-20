@@ -21,6 +21,10 @@
 		<title>Chat app</title>
 	</head>
 	<body>
+		<div class="modalSucces disabled">
+			<h3 id="succesPostUser"></h3>
+			<span class="material-symbols-outlined"> check_circle </span>
+		</div>
 		<div class="container">
 			<div class="box signin">
 				<h2>¿Ya tienes una cuenta?</h2>
@@ -34,6 +38,7 @@
 				<div class="form signinform">
 					<form id="loginForm">
 						<h3>Iniciar sesion</h3>
+						<span id="errorLoginUser"></span>
 						<div class="formsIcons">
 							<span class="material-symbols-outlined"> mail </span>
 							<input type="text" placeholder="Correo electronico" name="email" />
@@ -48,6 +53,7 @@
 						<a href="#" class="forgot">¿Olvidaste la contraseña?</a>
 					</form>
 				</div>
+
 				<div class="form signupform">
 					<form id="registerForm">
 						<h3>Registrarse</h3>

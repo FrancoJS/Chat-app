@@ -10,6 +10,7 @@
 :root {
 	--background-color: #1c3659;
 	--background-linear: linear-gradient(90deg, rgb(123, 23, 23) 0%, rgba(66, 71, 204, 1) 99%);
+	--background-color2: rgba(66, 71, 204, 1);
 }
 
 /* FORMULARIOS                          */
@@ -78,7 +79,7 @@ body {
 	width: 400px;
 	height: 520px;
 	background-color: #fff;
-	z-index: 1000;
+	z-index: 20;
 	box-shadow: 10px 5px 25px rgba(0, 0, 0, 0.5);
 	transition: 0.5s;
 	transition-delay: 0.5s;
@@ -131,7 +132,7 @@ body {
 }
 
 .formBx .form form h3 {
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	color: #333;
 	font-weight: 600;
 	text-align: center;
@@ -142,11 +143,10 @@ body {
 	padding: 10px;
 	outline: none;
 	border: none;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 }
 
 .formBx .form form input[type="submit"] {
-	border: 1px solid #000;
 	margin-top: 20px;
 	font-weight: 600;
 	width: 150px;
@@ -187,13 +187,38 @@ body {
 
 /* -------------------------------------------- */
 
-/* MENSAJES DE ERROR FORMULARIO */
+/* MENSAJES DE ERROR O CORRECTO FORMULARIO */
 
 .errorMsgLogin,
 .errorMsgRegister,
-#errorPostUser {
-	font-size: 0.75rem;
+#errorPostUser,
+#errorLoginUser {
+	font-size: 0.8rem;
 	color: red;
 }
 
 /*---------------------------------------  */
+
+.modalSucces {
+	position: absolute;
+	top: 5%;
+	z-index: 30;
+	background-color: #fff;
+	opacity: 90%;
+	width: 350px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.9rem;
+	color: var(--background-color2);
+	transition: 0.5s;
+}
+
+.modalSucces span {
+	margin: 0 5px;
+}
+
+.disabled {
+	top: -100%;
+}
