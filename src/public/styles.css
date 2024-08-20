@@ -169,14 +169,13 @@ body {
 	margin-top: 10px;
 }
 
-.formsIcons span {
+/* .formsIcons span {
 	border-right: 1px solid #000;
 	padding-right: 10px;
 	color: ;
-}
+} */
 
 .forgot {
-	/* text-decoration: none; */
 	color: #000;
 	font-size: 0.8rem;
 	margin-top: 10px;
