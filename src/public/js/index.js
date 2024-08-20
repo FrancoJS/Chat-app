@@ -1,5 +1,6 @@
-import { slideForm } from "./slideForm.js";
+import { slideForm } from "./forms/slideForm.js";
 slideForm();
 
-import { validateForms } from "./validationForms.js";
-validateForms();
+import { validateLogin, validateRegister } from "./forms/validationForms.js";
+validateLogin();
+validateRegister();

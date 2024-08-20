@@ -1,13 +1,15 @@
+import { registerUser } from "./api.js";
+
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-export const validateForms = () => {
+export const validateLogin = () => {
 	loginForm.addEventListener("submit", (e) => {
 		const [errorEmail, errorPassword] = document.querySelectorAll(".errorMsgLogin");
 		e.preventDefault();
-		const email = e.target.email.value;
-		const password = e.target.password.value;
+		const email = e.target.email.value.trim();
+		const password = e.target.password.value.trim();
 
 		// Validacion Email
 		errorEmail.textContent = !email
@@ -31,14 +33,18 @@ export const validateForms = () => {
 			console.log("Enviado");
 		}
 	});
+};
 
-	registerForm.addEventListener("submit", (e) => {
+export const validateRegister = () => {
+	registerForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
+
+		const errorPostUser = document.getElementById("errorPostUser");
 		const [errorName, errorEmail, errorPassword, errorConfirm] = document.querySelectorAll(".errorMsgRegister");
-		const name = e.target.name.value;
-		const email = e.target.email.value;
-		const password = e.target.password.value;
-		const confirmPassword = e.target.confirm.value;
+		const name = e.target.name.value.trim();
+		const email = e.target.email.value.trim();
+		const password = e.target.password.value.trim();
+		const confirmPassword = e.target.confirm.value.trim();
 
 		errorName.textContent = !name
 			? "El nombre es un campo obligatorio"
@@ -70,7 +76,10 @@ export const validateForms = () => {
 
 		if (!errorName.textContent && !errorEmail.textContent && !errorPassword.textContent && !errorConfirm.textContent) {
 			// No hay errores, se puede enviar el formulario
-			console.log("Enviado");
+			const data = await registerUser(name, email, password);
+			if (!data.ok) {
+				errorPostUser.textContent = data.msg;
+			}
 		}
 	});
 };
