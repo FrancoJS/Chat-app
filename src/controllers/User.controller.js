@@ -29,7 +29,8 @@ const findUser = async (req, res) => {
 		if (!userInDB) return res.status(404).json({ ok: false, msg: "¡Usuario no se encuentra registrado!" });
 		const match = await comparePassword(password, userInDB.password);
 		if (!match) return res.status(400).json({ ok: false, msg: "¡Usuario o contraseña incorrectos!" });
-		return res.status(200).json({ ok: true, user: userInDB, msg: "¡Inicio de sesion exitoso!" });
+		const token = createToken(userInDB.username, userInDB.email, userInDB.u_id);
+		return res.status(200).json({ ok: true, user: userInDB, msg: "¡Inicio de sesion exitoso!", token });
 	} catch (error) {
 		return res.status(400).json({ ok: false, msg: "Ocurrio un problema en la consulta", error });
 	}

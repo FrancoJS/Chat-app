@@ -30,7 +30,6 @@ main {
 	align-items: center;
 	background: var(--background-color);
 	background: var(--background-linear);
-	transition: 1s;
 }
 
 /* Navbar component */
@@ -87,6 +86,7 @@ header {
 		padding: 10px;
 	}
 }
+
 /* -------------- */
 
 .container {

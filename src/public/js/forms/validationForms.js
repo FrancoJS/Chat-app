@@ -36,14 +36,16 @@ export const validateLogin = () => {
 		if (!errorEmail.textContent && !errorPassword.textContent) {
 			const data = await loginUser(email, password);
 			if (!data.ok) {
-				errorLoginUser.textContent = data.msg;
-			} else {
-				modalSucces.classList.remove("disabled");
-				msgSuccesUser.textContent = data.msg;
-				setTimeout(() => {
-					modalSucces.classList.add("disabled");
-				}, 3000);
+				return (errorLoginUser.textContent = data.msg);
 			}
+			modalSucces.classList.remove("disabled");
+			msgSuccesUser.textContent = data.msg;
+			setTimeout(() => {
+				modalSucces.classList.add("disabled");
+				const token = data.token;
+				localStorage.setItem("token", token);
+				window.location.href = "/chat";
+			}, 3000);
 		}
 	});
 };
