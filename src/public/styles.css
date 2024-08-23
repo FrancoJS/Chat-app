@@ -8,25 +8,86 @@
 }
 
 :root {
-	--background-color: #1c3659;
+	--background-blue: #1c3659;
 	--background-linear: linear-gradient(90deg, rgb(123, 23, 23) 0%, rgba(66, 71, 204, 1) 99%);
-	--background-color2: rgba(66, 71, 204, 1);
+	--background-purple: rgba(66, 71, 204, 1);
+	--background-red: rgb(123, 23, 23);
 }
 
 /* FORMULARIOS                          */
 body {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	height: 100dvh;
+	max-height: 100vh;
+}
+
+main {
+	height: 100dvh;
+	max-height: 100dvh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
 	background: var(--background-color);
 	background: var(--background-linear);
 	transition: 1s;
 }
 
-/* .slide {
-	background-color: #1c3659;
-} */
+/* Navbar component */
+header {
+	background-color: #000;
+}
+
+.navbar {
+	background-color: #000;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 100vh;
+	padding: 50px 30px;
+}
+
+.navbarLogo a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+}
+
+.navbar ul {
+	height: 40%;
+}
+
+.navbar ul a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.navbar ul a span {
+	background-color: var(--background-purple);
+	font-size: 1.5rem;
+	padding: 15px;
+	border-radius: 100%;
+	margin-bottom: 10px;
+}
+
+.navbar ul a span:hover {
+	background-color: var(--background-red);
+}
+
+@media screen and (max-width: 1600px) {
+	.navbarLogo a {
+		font-size: 1.2rem;
+	}
+
+	.navbar ul a span {
+		font-size: 1.5rem;
+		padding: 10px;
+	}
+}
+/* -------------- */
 
 .container {
 	position: relative;
@@ -150,7 +211,7 @@ body {
 	margin-top: 20px;
 	font-weight: 600;
 	width: 150px;
-	background-color: var(--background-color);
+	background-color: var(--background-blue);
 	color: #fff;
 	cursor: pointer;
 }
@@ -211,7 +272,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-size: 0.9rem;
-	color: var(--background-color2);
+	color: var(--background-purple);
 	transition: 0.5s;
 }
 
@@ -221,4 +282,113 @@ body {
 
 .disabled {
 	top: -100%;
+}
+
+/* CHAT------------- */
+
+.containerChats {
+	/* background-color: #000; */
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 30% 70%;
+}
+
+.containerChats .panelChats {
+	background-color: #fff;
+	padding: 30px;
+}
+
+.listAllChats li {
+	background-color: #fff;
+	margin-top: 10px;
+	list-style: none;
+}
+
+.listAllChats li a {
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: #333;
+}
+
+.listChat {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #000;
+}
+
+.containerChat {
+	background-color: var(--background-linear);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+.chatBox {
+	padding: 80px 150px;
+	overflow-y: auto;
+	color: #000;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.chatMsg {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.chatMsg p {
+	border-bottom: 1px solid #000;
+	padding-bottom: 20px;
+}
+
+.userName {
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+.dateMsg {
+	margin-left: 20px;
+	font-size: 0.8rem;
+}
+
+/* teclado para mandar mensajes */
+
+.containerKeyboardChat {
+	width: 100%;
+	background-color: #000;
+	padding: 20px 100px;
+}
+
+#chatForm {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#chatForm input {
+	width: 90%;
+	border-radius: 20px;
+	padding: 15px 30px;
+	font-size: 1.2rem;
+	border: none;
+	outline: none;
+}
+
+#chatForm button {
+	background-color: #000;
+	border: none;
+	cursor: pointer;
+}
+
+#chatForm button span {
+	/* color: var(--background-purple); */
+	color: #fff;
+	font-size: 4rem;
 }
