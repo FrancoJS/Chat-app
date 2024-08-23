@@ -327,15 +327,15 @@ header {
 }
 
 .chatBox {
-	padding: 80px 150px;
+	padding: 80px 100px;
 	overflow-y: auto;
-	color: #000;
+	color: #fff;
 	display: grid;
 	grid-template-columns: 1fr;
 }
 
 .chatMsg {
-	background-color: #fff;
+	/* background-color: #fff; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -343,7 +343,7 @@ header {
 }
 
 .chatMsg p {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #fff;
 	padding-bottom: 20px;
 }
 

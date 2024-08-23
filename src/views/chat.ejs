@@ -57,7 +57,7 @@
 				</section>
 				<section class="containerChat">
 					<div class="chatBox">
-						<div class="chatMsg">
+						<!-- <div class="chatMsg">
 							<div class="userName">
 								<h3>Jean</h3>
 								<span class="dateMsg">22/08/2024</span>
@@ -69,13 +69,10 @@
 						</div>
 						<div class="chatMsg">
 							<div class="userName">
-								<h3>Jean</h3>
-								<span class="dateMsg">22/08/2024</span>
+								<h3></h3>
+								<span class="dateMsg"></span>
 							</div>
-							<p>
-								Mensajeoiasdaskdnaskjndjksandjksanlorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-								numquam praesentium necessitatibus vel. Sapiente neque amet sed? Laboriosam voluptatem magnam
-							</p>
+							<p></p>
 						</div>
 						<div class="chatMsg">
 							<div class="userName">
@@ -86,17 +83,18 @@
 								Mensajeoiasdaskdnaskjndjksandjksanlorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
 								numquam praesentium necessitatibus vel. Sapiente neque amet sed? Laboriosam voluptatem magnam
 							</p>
-						</div>
+						</div> -->
 					</div>
 
 					<div class="containerKeyboardChat">
-						<form action="" id="chatForm">
-							<input type="text" placeholder="Escribe un mensaje" />
+						<form id="chatForm">
+							<input id="chatInput" type="text" placeholder="Escribe un mensaje" autocomplete="off" />
 							<button type="submit"><span class="material-symbols-outlined"> send </span></button>
 						</form>
 					</div>
 				</section>
 			</div>
 		</main>
+		<script src="js/chat/io.js" type="module"></script>
 	</body>
 </html>

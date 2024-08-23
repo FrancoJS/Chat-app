@@ -90,14 +90,16 @@ export const validateRegister = () => {
 			// No hay errores, se puede enviar el formulario
 			const data = await registerUser(name, email, password);
 			if (!data.ok) {
-				errorPostUser.textContent = data.msg;
-			} else {
-				modalSucces.classList.remove("disabled");
-				msgSuccesUser.textContent = data.msg;
-				setTimeout(() => {
-					modalSucces.classList.add("disabled");
-				}, 3000);
+				return (errorPostUser.textContent = data.msg);
 			}
+			modalSucces.classList.remove("disabled");
+			msgSuccesUser.textContent = data.msg;
+			setTimeout(() => {
+				modalSucces.classList.add("disabled");
+				const { token } = data;
+				localStorage.setItem("token", token);
+				window.location.href = "/chat";
+			}, 3000);
 		}
 	});
 };

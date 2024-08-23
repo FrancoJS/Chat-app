@@ -1,3 +1,4 @@
+import { createToken } from "../middleware/jwt.middleware.js";
 import { UserModel } from "../models/User.model.js";
 import { comparePassword, hashPassword } from "../services/passsword.service.js";
 
@@ -12,7 +13,8 @@ const createUser = async (req, res) => {
 		const hashedPassword = await hashPassword(password);
 		const newUser = await UserModel.createUser(username, email, hashedPassword);
 		// TODO VER SI ES NECESARIO DEVOLVER EL NEWUSER
-		return res.status(200).json({ ok: true, user: newUser, msg: "¡Usuario registrado con exito!" });
+		const token = createToken(newUser.username, newUser.email, newUser.u_id);
+		return res.status(200).json({ ok: true, user: newUser, msg: "¡Usuario registrado con exito!", token });
 	} catch (error) {
 		return res.status(400).json({ ok: false, msg: "Ocurrio un problema con la consulta", error });
 	}
