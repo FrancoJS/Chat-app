@@ -19,7 +19,7 @@ const createUser = async (username, email, password) => {
 
 const findByEmail = async (email) => {
 	const query = {
-		text: `SELECT * FROM USERS WHERE EMAIL = $1`,
+		text: `SELECT U_ID, USERNAME, EMAIL FROM USERS WHERE EMAIL = $1`,
 		values: [email],
 	};
 

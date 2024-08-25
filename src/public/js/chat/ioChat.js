@@ -1,5 +1,5 @@
 import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
-import { saveMessage } from "./apiChat.js";
+import { findUserByEmail, saveMessage } from "./apiChat.js";
 
 const token = localStorage.getItem("token");
 if (!token) window.location.href = "/forms";
@@ -32,15 +32,31 @@ socket.on("chat message", (message, lastMessageId, dateMsg) => {
 
 chatForm.addEventListener("submit", async (e) => {
 	e.preventDefault();
-	if (chatInput.value) {
-		const content = chatInput.value.trim();
+	const contentMsg = chatInput.value;
+	if (contentMsg) {
 		const token = localStorage.getItem("token");
 		try {
-			await saveMessage(content, token);
+			await saveMessage(contentMsg, token);
 			socket.emit("chat message", chatInput.value);
 			chatInput.value = "";
 		} catch (error) {
 			console.log(error);
 		}
+	}
+});
+
+const searchUserForm = document.getElementById("searchUserForm");
+const searchUserInput = document.getElementById("searchUserInput");
+
+searchUserForm.addEventListener("submit", async (e) => {
+	e.preventDefault();
+	const email = searchUserInput.value;
+	if (!email) return;
+
+	try {
+		const data = await findUserByEmail(email, token);
+		console.log(data);
+	} catch (error) {
+		console.log(error);
 	}
 });

@@ -36,7 +36,20 @@ const findUser = async (req, res) => {
 	}
 };
 
+const findByEmail = async (req, res) => {
+	const { email } = req?.body;
+	if (!email) return res.status(400).json({ ok: false, msg: "Es necesario el email para buscar al usuario" });
+	try {
+		const userInDB = await UserModel.findByEmail(email);
+		if (!userInDB) return res.status(404).json({ ok: false, msg: "Usuario no existe" });
+		return res.status(200).json({ ok: true, user: userInDB, msg: "Usuario encontrado con exito" });
+	} catch (error) {
+		return res.status(400).json({ ok: false, msg: "Ocurrio un problema en la consulta", error });
+	}
+};
+
 export const UserController = {
 	createUser,
 	findUser,
+	findByEmail,
 };
