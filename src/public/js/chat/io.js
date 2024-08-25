@@ -1,7 +1,6 @@
 import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
 
 const token = localStorage.getItem("token");
-console.log(token);
 if (!token) window.location.href = "/forms";
 
 const socket = io();
