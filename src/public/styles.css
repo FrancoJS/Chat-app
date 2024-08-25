@@ -332,6 +332,7 @@ header {
 	color: #fff;
 	display: grid;
 	grid-template-columns: 1fr;
+	scroll-behavior: smooth;
 }
 
 .chatMsg {

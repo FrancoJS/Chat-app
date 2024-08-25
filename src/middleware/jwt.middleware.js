@@ -6,7 +6,6 @@ export const createToken = (username, email, u_id) => {
 
 export const verifyToken = (req, res, next) => {
 	let token = req.headers.authorization;
-	console.log(token);
 
 	if (!token) return res.status(401).json({ ok: false, msg: "Usuario no autorizado" });
 	token = token.split(" ")[1];

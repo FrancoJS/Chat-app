@@ -1,4 +1,4 @@
-import { loginUser, registerUser } from "./api.js";
+import { loginUser, registerUser } from "./apiForms.js";
 
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
@@ -44,6 +44,9 @@ export const validateLogin = () => {
 				modalSucces.classList.add("disabled");
 				const token = data.token;
 				localStorage.setItem("token", token);
+				const { username, u_id } = data.user;
+				localStorage.setItem("username", username);
+				localStorage.setItem("u_id", u_id);
 				window.location.href = "/chat";
 			}, 3000);
 		}
@@ -100,6 +103,9 @@ export const validateRegister = () => {
 				modalSucces.classList.add("disabled");
 				const { token } = data;
 				localStorage.setItem("token", token);
+				const { username, u_id } = data.user;
+				localStorage.setItem("username", username);
+				localStorage.setItem("u_id", u_id);
 				window.location.href = "/chat";
 			}, 3000);
 		}

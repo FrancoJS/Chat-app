@@ -3,7 +3,7 @@ import "dotenv/config";
 import path from "path";
 import viewsRouter from "./routes/views.route.js";
 import userRouter from "./routes/user.route.js";
-import messagesRouter from "./routes/messages.route.js";
+import messagesRouter from "./routes/messages.route.js"; // Esto lo estoy haciendo desde el socket
 import logger from "morgan";
 import { createServer } from "node:http";
 import { initializeSocketIo } from "./socket.js";
