@@ -48,7 +48,7 @@ export const validateLogin = () => {
 				localStorage.setItem("username", username);
 				localStorage.setItem("u_id", u_id);
 				window.location.href = "/chat";
-			}, 3000);
+			}, 2500);
 		}
 	});
 };
@@ -107,7 +107,7 @@ export const validateRegister = () => {
 				localStorage.setItem("username", username);
 				localStorage.setItem("u_id", u_id);
 				window.location.href = "/chat";
-			}, 3000);
+			}, 2500);
 		}
 	});
 };
