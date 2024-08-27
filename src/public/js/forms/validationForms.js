@@ -99,7 +99,7 @@ export const validateRegister = () => {
 			}
 			modalSucces.classList.remove("disabled");
 			msgSuccesUser.textContent = data.msg;
-			setTimeout(() => {
+			setTimeout(async () => {
 				modalSucces.classList.add("disabled");
 				const { token } = data;
 				localStorage.setItem("token", token);

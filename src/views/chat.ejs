@@ -20,21 +20,13 @@
 		<!--  -->
 		<title>Talk Space</title>
 	</head>
-	<!-- <div class="modal"></div> -->
 	<body>
 		<%- include('partials/navbar') %>
 		<main>
 			<div class="modal"></div>
 			<div class="modalFail disabled"></div>
-			<div class="modalSearchUser disabled">
-				<!-- <h2>Usuario encontrado <span class="material-symbols-outlined"> check_circle </span></h2>
-					<p>Nombre de Usuario: Jean</p>
-					<p>Correo: jean.jara.fs@gmail.com</p>
-					<div>
-						<button type="button">Enviar mensaje</button>
-						<button type="button">Cancelar</button>
-					</div> -->
-			</div>
+			<div class="modalSearchUser disabled"></div>
+
 			<div class="containerChats">
 				<section class="panelChats">
 					<form id="searchUserForm">
@@ -72,19 +64,7 @@
 					</div>
 				</section>
 				<section class="containerChat">
-					<div class="chatBox">
-						<!-- <div class="chatMsg">
-								<div class="userName">
-									<h3>Jean</h3>
-									<span class="dateMsg">22/08/2024</span>
-								</div>
-								<p>
-									Mensajeoiasdaskdnaskjndjksandjksanlorem Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-									numquam praesentium necessitatibus vel. Sapiente neque amet sed? Laboriosam voluptatem magnam
-								</p>
-							</div>
-							-->
-					</div>
+					<div class="chatBox"></div>
 
 					<div class="containerKeyboardChat">
 						<form id="chatForm">
@@ -95,7 +75,6 @@
 				</section>
 			</div>
 		</main>
-
 		<script src="js/chat/ioChat.js" type="module"></script>
 		<script src="js/chat/panelChat.js" type="module"></script>
 	</body>

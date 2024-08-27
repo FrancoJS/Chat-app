@@ -33,3 +33,18 @@ export const findUserByEmail = async (email, token) => {
 		return error;
 	}
 };
+
+export const verifyToken = async (token) => {
+	try {
+		const response = await fetch("/api/chat/messages/verifyToken", {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return response.json();
+	} catch (error) {
+		return error;
+	}
+};

@@ -1,8 +1,13 @@
+import { verifyToken, saveMessage } from "./apiChat.js";
 import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
-import { saveMessage } from "./apiChat.js";
 
 const token = localStorage.getItem("token");
 if (!token) window.location.href = "/forms";
+
+const res = await verifyToken(token);
+if (!res.ok) {
+	window.location.href = "/forms";
+}
 
 const u_id = localStorage.getItem("u_id");
 const socket = io({
@@ -34,7 +39,7 @@ chatForm.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	const contentMsg = chatInput.value;
 	if (contentMsg) {
-		const token = localStorage.getItem("token");
+		// const token = localStorage.getItem("token");
 		try {
 			await saveMessage(contentMsg, token);
 			socket.emit("chat message", chatInput.value);

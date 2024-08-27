@@ -9,4 +9,5 @@ router.get("/forms", (req, res) => {
 router.get("/chat", (req, res) => {
 	res.render("chat");
 });
+
 export default router;
