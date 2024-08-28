@@ -4,7 +4,8 @@ const createConversation = async (req, res) => {
 	try {
 		const { name, user_id } = req?.body;
 		const u_id = req.u_id;
-		if (u_id === user_id) return res.status(400).json({ ok: false, msg: "" });
+		if (u_id === user_id)
+			return res.status(400).json({ ok: false, msg: "No puedes crear una conversacion contigo mismo" });
 
 		if (!name) return res.status(400).json({ ok: false, msg: "El nombre de la conversacion es necesario" });
 		const username = req.username;

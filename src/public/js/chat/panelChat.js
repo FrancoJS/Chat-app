@@ -52,8 +52,7 @@ searchUserForm.addEventListener("submit", async (e) => {
 		sendMessageModal.addEventListener("click", async () => {
 			try {
 				const conversationData = await createConversation(token, user.username, user.u_id);
-				const { conversation } = conversationData;
-				const { conver_id } = conversation;
+				console.log(conversationData);
 				if (!conversationData.ok) {
 					modalSearchUser.classList.add("disabled");
 					modalFail.textContent = "";
@@ -68,6 +67,8 @@ searchUserForm.addEventListener("submit", async (e) => {
 					}, 2500);
 					return;
 				}
+				const { conversation } = conversationData;
+				const { conver_id } = conversation;
 				const listAllChats = document.querySelector(".listAllChats");
 				const itemLi = `<li>
 								<div class="listChat">
