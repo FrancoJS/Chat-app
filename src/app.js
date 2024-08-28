@@ -4,6 +4,7 @@ import path from "path";
 import viewsRouter from "./routes/views.route.js";
 import userRouter from "./routes/user.route.js";
 import messagesRouter from "./routes/messages.route.js";
+import conversationRouter from "./routes/conversation.route.js";
 import logger from "morgan";
 import { createServer } from "node:http";
 import { initializeSocketIo } from "./socket.js";
@@ -28,6 +29,7 @@ app.set("views", "src/views");
 app.use("/", viewsRouter);
 app.use("/api/chat", userRouter);
 app.use("/api/chat/messages", messagesRouter);
+app.use("/api/chat/conversation", conversationRouter);
 
 // Puerto de variables
 const PORT = process.env.PORT;

@@ -12,6 +12,7 @@ export const verifyToken = (req, res, next) => {
 	try {
 		const { username, email, u_id } = jwt.verify(token, process.env.JWT_SECRET);
 		req.u_id = u_id;
+		req.username = username;
 		next();
 	} catch (error) {
 		return res.status(400).json({ ok: false, msg: "Token invalido", error });

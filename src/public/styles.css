@@ -371,12 +371,14 @@ header {
 	width: 100%;
 	background-color: #000;
 	padding: 20px 100px;
+	display: none;
 }
 
 #chatForm {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	/* display: none; */
 }
 
 #chatForm input {
@@ -443,6 +445,7 @@ header {
 	font-size: 0.9rem;
 	color: var(--background-purple);
 	transition: 0.5s;
+	text-align: center;
 }
 
 .modalSucces span,

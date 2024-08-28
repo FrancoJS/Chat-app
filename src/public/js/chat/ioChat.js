@@ -7,6 +7,9 @@ if (!token) window.location.href = "/forms";
 const res = await verifyToken(token);
 if (!res.ok) {
 	window.location.href = "/forms";
+	localStorage.removeItem("token");
+	localStorage.removeItem("username");
+	localStorage.removeItem("u_id");
 }
 
 const u_id = localStorage.getItem("u_id");
@@ -39,7 +42,6 @@ chatForm.addEventListener("submit", async (e) => {
 	e.preventDefault();
 	const contentMsg = chatInput.value;
 	if (contentMsg) {
-		// const token = localStorage.getItem("token");
 		try {
 			await saveMessage(contentMsg, token);
 			socket.emit("chat message", chatInput.value);
